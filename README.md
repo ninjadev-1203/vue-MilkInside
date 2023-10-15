@@ -1,7 +1,8 @@
 # milkinside-vue
 
 ![MildInside1](vue1.jpg)
-
+![MildInside2](vue2.jpg)
+![MildInside3](vue3.jpg)
 
 ## Project setup
 ```
