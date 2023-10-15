@@ -1,10 +1,5 @@
 # milkinside-vue
 
-Preview 1:
-![MildInside1](vue1.jpg)
-Preview 2: 
-![MildInside2](vue2.jpg)
-Preview 3: 
 ![MildInside3](vue3.jpg)
 
 ## Project setup
