@@ -1,6 +1,8 @@
 # milkinside-vue
 
-![MildInside3](vue3.jpg)
+![Alt text](dist/vue1.jpg)
+![Alt text](dist/vue2.jpg)
+![Alt text](dist/vue3.jpg)
 
 ## Project setup
 ```
