@@ -1,0 +1,34 @@
+.c-intro {
+  &__content {
+    @extend %flex-between;
+    margin-top: 12px;
+    overflow: hidden;
+  }
+
+  &__left {
+    @extend %flex-center;
+    @include flex-gap(16px);
+  }
+
+  &__right {
+    @include flex-gap(12px);
+    align-items: center;
+    @include media("<=tablet") {
+      display: none;
+    }
+  }
+
+  &__number {
+    font-weight: 700;
+  }
+
+  &__text {
+    text-transform: uppercase;
+  }
+
+  &__line {
+    width: max(4rem, 24px);
+    opacity: 1;
+    transform: translateY(-100%);
+  }
+}

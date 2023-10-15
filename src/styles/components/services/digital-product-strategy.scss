@@ -1,0 +1,85 @@
+.c-strategy {
+  display: flex;
+  flex-direction: column;
+
+  &__heading-row {
+    margin: 64px 0 16px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__heading {
+    @extend %sub-24;
+    color: $black;
+  }
+
+  &__dropdown-btn {
+    background-color: transparent;
+    border: none;
+    margin-left: 24px;
+    height: 24px;
+
+    .hide {
+      display: none;
+    }
+  }
+
+  &__section {
+    display: none;
+    flex-grow: 1;
+    flex-direction: column;
+
+    &--active {
+      display: flex;
+    }
+  }
+
+  &__top-title {
+    margin: 32px 0 auto;
+    @extend %title-2;
+  }
+
+  &__bottom-title {
+    @extend %title-2;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  &__bottom-line {
+    margin-bottom: 26px;
+  }
+
+  &__services {
+    margin: 48px 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(5, 1fr);
+    justify-content: space-between;
+    grid-auto-flow: column;
+    row-gap: 20px;
+  }
+
+  &__services-item {
+    @extend %body-20-bold;
+    color: $black;
+  }
+
+
+  &__footer{
+    display: flex;
+    align-items: center;
+  }
+
+  &__what-we-do {
+    display: grid;
+    grid-template-columns: repeat(5, 130px);
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+
+  &__what-we-do-item {
+    @extend %sub-24;
+    color: $black;
+    width: max-content;
+  }
+}

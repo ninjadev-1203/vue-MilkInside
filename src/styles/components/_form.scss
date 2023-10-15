@@ -1,0 +1,43 @@
+.c-form {
+  .c-input {
+    height: 100px;
+    width: 100%;
+    background: rgba(217, 217, 217, 0.1);
+    backdrop-filter: blur(44px);
+    border-radius: 30px;
+    border: 0;
+    font-family: $font-sans;
+    text-indent: 32px;
+    @extend %sub-20-bold;
+    color: $white;
+
+    @include media("<=tablet") {
+      height: 72px;
+      text-indent: 32px;
+      border-radius: 24px;
+      font-size: 16px;
+    }
+
+    @include placeholder {
+      color: rgba($white, 0.2);
+      font-size: inherit;
+      font-family: inherit;
+    }
+    @include autoFill(rgba(255, 255, 255, 0.08), $white);
+  }
+
+  .m-input {
+    position: relative;
+
+    .c-button {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+
+      @include media("<=tablet") {
+        right: 8px;
+      }
+    }
+  }
+}

@@ -1,0 +1,226 @@
+.c-menu {
+  &:not(.active) {
+    opacity: 0;
+  }
+  @extend %flex-between;
+  @include flex-gap(8vw);
+  padding: var(--padding);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: z("menu");
+  background-color: $black;
+  color: $white;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  --animation-duration: 700ms;
+  padding-top: calc(var(--nav-height) + 16px);
+
+  animation: intro-preview var(--animation-duration/2) $ease-sharp-out;
+  // will-change: transform;
+  @keyframes intro-preview {
+    from {
+      // Dynamically set translate & scale values with JS
+      opacity: 0;
+    }
+  }
+
+  @include media("<=tablet") {
+    overflow-y: scroll;
+  }
+
+  &__content {
+    @extend %content-width;
+    @extend %flex-between;
+    flex-direction: column;
+    height: 78vh;
+
+    @include media("<=tablet") {
+      height: auto;
+      display: initial;
+    }
+  }
+
+  &__copy {
+    @extend %flex-center;
+    text-transform: uppercase;
+    font-weight: 500;
+    @include flex-gap(12px);
+    animation: intro-footer var(--animation-duration) $ease-sharp-out;
+
+    @include media("<=tablet") {
+      display: none;
+    }
+  }
+
+  &__group {
+    animation: intro-group var(--animation-duration) $ease-sharp-out;
+    @keyframes intro-group {
+      from {
+        transform: translate3d(0, 180px, 0);
+      }
+    }
+
+    @include media("<=tablet") {
+      display: flex;
+    }
+
+    &s {
+      @extend %flex-between;
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(10%);
+        }
+      }
+
+      @include media("<=tablet") {
+        flex-direction: column;
+        @include flex-gap(40px);
+        display: flex;
+        margin: 64px 0;
+
+        + .c-line {
+          display: none;
+        }
+      }
+    }
+
+    &-heading {
+      @extend %title-2;
+
+      @include media("<=tablet") {
+        width: 50%;
+      }
+    }
+
+    &-link {
+      @extend %sub-24;
+      opacity: 0.4;
+      transition: opacity 100ms $ease-soft-in-out;
+
+      @include media("<=phone") {
+        font-size: 16px;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &s {
+        display: flex;
+        flex-direction: column;
+        @include flex-gap(2.4rem);
+        margin-top: 4.8rem;
+
+        @include media("<=tablet") {
+          margin-top: 8px;
+          @include flex-gap(12px);
+        }
+      }
+    }
+  }
+
+  &__footer {
+    .c-line {
+      animation: intro-line var(--animation-duration) $ease-sharp-out;
+    }
+
+    &-content {
+      @extend %flex-between;
+      margin-top: 4rem;
+      @keyframes intro-footer {
+        from {
+          transform: scale(0.6) translate3d(0, 450px, 0);
+        }
+      }
+
+      a {
+        animation: intro-footer var(--animation-duration) $ease-sharp-out;
+      }
+    }
+
+    &-links {
+      display: flex;
+      @include flex-gap(var(--padding));
+
+      @include media("<=tablet") {
+        width: 100%;
+        flex-direction: column;
+        @include flex-gap(40px);
+        margin-bottom: calc(var(--padding) * 2);
+      }
+    }
+
+    &-row {
+      display: flex;
+      @include flex-gap(var(--padding));
+
+      @include media("<=tablet") {
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__window {
+    // Set --w & --h with JS to ensure windows match viewport ratio even on resize
+    --w: 496;
+    --h: 280;
+    width: 100%;
+    aspect-ratio: var(--w) / var(--h);
+    background: linear-gradient(#7c7fa9, #deb7b5);
+    border-radius: 2.4rem;
+    margin-bottom: 4rem;
+    opacity: 0.5;
+    animation: intro-previews var(--animation-duration) $ease-sharp-out;
+    @keyframes intro-previews {
+      from {
+        transform: translate3d(0, 1200px, 0);
+      }
+    }
+
+    &.current {
+      animation: intro-preview var(--animation-duration) $ease-sharp-out;
+      // will-change: transform;
+      @keyframes intro-preview {
+        from {
+          // Dynamically set translate & scale values with JS
+          transform: scale(8) translateX(-40%);
+          border-radius: 0;
+          filter: blur(4px);
+          opacity: 0;
+        }
+      }
+    }
+
+    &s {
+      flex-grow: 1;
+      height: 100%;
+      margin-top: 15vh;
+
+      @include media("<=tablet") {
+        display: none;
+      }
+    }
+  }
+
+  .c-intro {
+    @keyframes intro-line {
+      from {
+        transform: translate3d(0, calc(280px * var(--switch, 1)), 0);
+      }
+    }
+
+    & > .c-line {
+      animation: intro-line var(--animation-duration) $ease-sharp-out;
+    }
+
+    &__content {
+      --switch: -1;
+      & > * {
+        animation: intro-line var(--animation-duration) $ease-sharp-out;
+      }
+    }
+  }
+}

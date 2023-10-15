@@ -1,0 +1,23 @@
+.c-learn-more{
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 24px;
+  align-items: center;
+
+  &__icon-wrapper{
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid #BEBEBE;
+    align-items: center;
+    justify-content: center;
+    display: inline-flex;
+    color: #030303;
+  }
+
+  &__text{
+    @extend %sub-24-bold;
+    color: $black;
+    text-decoration: none;
+  }
+}

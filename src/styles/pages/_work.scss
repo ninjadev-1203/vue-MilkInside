@@ -1,0 +1,203 @@
+.c-work {
+  @include screenHeight;
+  --color: #{$white};
+  color: var(--color);
+  @extend %flex-column;
+  @extend %page;
+
+  &--light {
+    --color: #{$black};
+  }
+
+  &--active {
+    @extend %page--active;
+  }
+
+  &__wrapper {
+    padding: var(--padding);
+    flex-grow: 1;
+    overflow: hidden;
+    @extend %flex-column;
+  }
+
+  &__section {
+    height: 100%;
+    display: none;
+
+    &--active {
+      display: block;
+    }
+  }
+
+  &__sections {
+    height: calc(100% - var(--padding));
+  }
+
+  &__heading {
+    height: max(3.2rem, 26px);
+    max-width: max(18rem, 120px);
+
+    &-logo {
+      height: 100%;
+      width: 100%;
+    }
+
+    &-row {
+      @extend %flex-between;
+      margin-bottom: 1.6rem;
+    }
+  }
+
+  &__control-buttons{
+    display: grid;
+    grid-template-columns: repeat(2, 20px);
+    column-gap: 5.4rem;
+    @include media("<=tablet") {
+      display: none;
+    }
+  }
+
+  &__content {
+    @extend %content-width;
+    @extend %flex-column;
+    height: 100%;
+    padding-top: 6.4rem;
+
+    &-title {
+      @extend %title-0;
+      font-size: 8vh;
+      margin-top: 32px;
+      max-width: 15ch;
+    }
+    &-about {
+      max-width: 40ch;
+      margin: 2.4vh 0 4.8vh 0;
+      font-size: max(2.4rem, 24px);
+    }
+  }
+
+  &__cta {
+    display: flex;
+    align-items: center;
+    font-size: max(2.4rem, 24px);
+    @include flex-gap(24px);
+  }
+
+  &__backgrounds {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  &__background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 70% top;
+
+    &--active {
+      z-index: 1;
+    }
+  }
+
+  .c-intro {
+    @extend %content-width;
+    padding-top: 6vh;
+  }
+
+  .c-sidebar {
+    position: fixed;
+    right: var(--padding);
+    top: 32px;
+    width: 24ch;
+
+    @include media("<=SMdesktop") {
+      display: none;
+    }
+
+    &__groups {
+      margin-top: 6vh;
+    }
+    &__group {
+      position: relative;
+
+      &:not(.c-sidebar__group--active):hover {
+        cursor: pointer;
+        .c-sidebar__media {
+          display: block;
+        }
+      }
+    }
+    &__group--active {
+      .c-sidebar__content {
+        &-about {
+          display: block;
+        }
+        &-title {
+          @extend %body-20-bold;
+        }
+        &::after {
+          display: initial;
+        }
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+    &__content {
+      position: relative;
+      padding-bottom: 5rem;
+      margin-bottom: 5rem;
+      // Indicator lines
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 80%;
+        height: 2px;
+        background-color: var(--color);
+        opacity: .4;
+      }
+      &::before {
+        width: 18%;
+      }
+      &::after {
+        display: none;
+      }
+
+      &-title {
+        @extend %body-20;
+        max-width: 80%;
+      }
+      &-about {
+        display: none;
+        margin-top: 16px;
+      }
+    }
+    &__media {
+      width: 13vw;
+      aspect-ratio: 1.625;
+      background-color: $white-fade;
+      position: absolute;
+      top: 0;
+      right: calc(100% + 3.2rem);
+      display: none;
+      animation: slideUp .6s $ease-out-expo;
+      @keyframes slideUp {
+        from {
+          transform: translate3d(-15%, 0, 0);
+          opacity: 0;
+        }
+      }
+
+      img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}

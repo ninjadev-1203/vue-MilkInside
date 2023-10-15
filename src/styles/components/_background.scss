@@ -1,0 +1,15 @@
+.c-background {
+  position: fixed;
+  z-index: 0;
+  overflow: hidden;
+  width: 100vw;
+  @include screenHeight;
+  display: flex;
+
+  canvas {
+    object-fit: cover;
+    object-position: right;
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,162 @@
+.c-faq-schedule{
+  width: 100%;
+  flex-direction: column;
+  padding: 0;
+
+  &__content-wrapper{
+    padding: 0 var(--padding);
+    margin-bottom: auto;
+  }
+
+  &__content{
+    @extend %content-width;
+  }
+
+  &__heading-row{
+    display: flex;
+    align-items: center;
+    margin-top: 64px;
+  }
+
+  &__heading-toggle-button{
+    @extend %sub-24;
+    color: $black-fade;
+    border: none;
+    background-color: transparent;
+
+    &--active{
+      color: $black;
+    }
+
+    & + &{
+      margin-left: 20px;
+      margin-right: auto;
+    }
+  }
+
+  &__heading-text{
+    @extend %sub-24;
+    color: $black
+  }
+
+  &__line{
+    margin: 16px 0 24px;
+  }
+
+  &__item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    $item: &;
+
+    &-divider{
+      height: 2px;
+      width: 100%;
+      background-color: $black;
+      opacity: 0.1;
+      margin: 24px 0;
+    }
+
+    &-title{
+      @extend %body-20-bold;
+      transition: margin-bottom 0.4s ease, ease;
+
+      #{$item}:hover & {
+        font-weight: 700;
+      }
+    }
+
+    &-description{
+      @extend %body-16;
+      color: $black;
+      margin-top: 12px;
+      opacity: 0;
+      height: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s, height 0.4s ease;
+
+      #{$item}:hover & {
+        height: auto;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    &-data{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 24px;
+      align-items: center;
+      width: 224px;
+      height: 56px;
+      border-radius: 120px;
+      background: rgba($gray, 0.7);
+      flex-shrink: 0;
+      margin-left: 32px;
+
+      #{$item}:hover & {
+        background-color: black;
+      }
+
+      &-value{
+        @extend %title-3;
+        text-align: right;
+        color: $black;
+
+        #{$item}:hover & {
+          color: $white;
+        }
+      }
+
+      &-text{
+        @extend %body-12;
+        color: $black;
+
+        #{$item}:hover & {
+          color: $white;
+        }
+      }
+
+      &-subtext{
+        @extend %body-12;
+        color: $black-fade;
+
+        #{$item}:hover & {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  &__footer-wrapper{
+    display: flex;
+  }
+
+  &__footer{
+    @extend %content-width;
+    margin-right: 72px;
+    padding: 18px 72px 18px 44px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $gray;
+
+    &__title{
+      @extend %body-20-bold;
+      color: $black;
+    }
+
+    &__description{
+      @extend %body-16;
+      color: $black;
+    }
+
+    &__availability{
+      @extend %body-16-bold;
+      color: $black;
+      text-align: center;
+    }
+  }
+}

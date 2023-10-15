@@ -1,0 +1,89 @@
+@mixin button-small {
+  width: 56px;
+  height: 56px;
+
+  .c-button__icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.c-button {
+  display: inline-flex;
+  transition: background 0.2s $ease-out-expo, color 0.2s $ease-out-expo;
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &--icon-only {
+    justify-content: center;
+    align-items: center;
+  }
+
+  &--rounded {
+    border-radius: 50%;
+  }
+
+  &--cornered {
+    border-radius: 24px;
+  }
+
+  &--small {
+    @include button-small;
+  }
+
+  &--large {
+    width: 72px;
+    height: 72px;
+
+    @include media("<=tablet") {
+      @include button-small;
+    }
+  }
+
+  &--white {
+    background: $white;
+    color: $black;
+
+    @include cursor {
+      &:hover {
+        background: $black;
+        color: $white;
+      }
+    }
+  }
+
+  &--black {
+    background: $black;
+    color: $white;
+
+    @include cursor {
+      &:hover {
+        background: rgba($black, 0.4);
+      }
+    }
+  }
+
+  &--gradient {
+    background: $sky-blue-gradient;
+    color: $black;
+  }
+
+  &--transparent {
+    background: rgba($white, 0.08);
+    backdrop-filter: blur(50px);
+
+    @include cursor {
+      &:hover {
+        background: rgba($white, 0.4);
+      }
+    }
+  }
+}

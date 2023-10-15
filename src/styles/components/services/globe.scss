@@ -1,0 +1,127 @@
+:root {
+  --ease-soft-in-out: cubic-bezier(0.33, 0, 0.67, 1);
+}
+
+.globe {
+  --size: 342px;
+  margin: 0 auto;
+  border-radius: 50%;
+  width: var(--size);
+  height: var(--size);
+  font-size: 0.1vmin;
+  filter: blur(0.1px);
+  background: #d2d2d2;
+  border: 1px solid #f8f8f9;
+  box-shadow: 0 0 8em rgba(255, 255, 255, 0.8);
+  animation: reveal 1s var(--ease-soft-in-out);
+
+  @keyframes reveal {
+    from {
+      transform: translateY(90%);
+      opacity: 0;
+    }
+  }
+
+  &__data {
+    position: relative;
+    height: 100%;
+    z-index: -1;
+    display: inline-block;
+    overflow: hidden;
+    will-change: transform;
+    animation: show 1s 0.1s var(--ease-soft-in-out) backwards,
+      loop 40s 1.1s linear infinite;
+    @keyframes show {
+      from {
+        transform: translateX(-75%);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+    @keyframes loop {
+      from {
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  img {
+    height: 110%;
+    width: auto;
+    opacity: 0.35;
+  }
+
+  &__wrapper {
+    position: relative;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid #f8f8f9;
+    box-shadow: inset 10em 6em 32em #f1f1f1, inset -7em 8em 12em #fbfafc,
+      inset 30em -50em 60em #f3f3f3, inset 40em -110em 100em #4d4d4d,
+      inset 50em -70em 141em 20em #4d4d4d, inset -48em -2em 250em #fafafa;
+    @supports (-webkit-touch-callout: none) {
+      & {
+        -webkit-backface-visibility: hidden;
+        -webkit-transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+
+  &__point {
+    &s {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 9;
+    }
+
+    --size: 10em;
+    position: absolute;
+    left: var(--left);
+    top: var(--top);
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    background-color: #b4b2b7;
+    border: 4em solid rgba(255, 255, 255, 0.6);
+    display: grid;
+    place-items: center;
+    animation: showPoints 0.46s 1.1s backwards var(--ease-soft-in-out);
+    transition: transform 0.4s ease-in-out, color 0.4s linear,
+      border-color 0.4s linear;
+    @keyframes showPoints {
+      from {
+        transform: scale(0);
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      border-radius: inherit;
+      z-index: -1;
+      --size: 400%;
+      width: var(--size);
+      height: var(--size);
+      background: radial-gradient(
+        50% 50% at 50% 50%,
+        rgba(255, 0, 0, 0) 0%,
+        rgba(255, 0, 92, 0.08) 100%
+      );
+      transform: scale(0);
+      transition: transform 0.4s ease-in-out;
+    }
+
+    &.active {
+      transform: scale(1.7);
+      background-color: #f5f4f7;
+      border-color: #ff005c;
+      &::before {
+        transform: none;
+      }
+    }
+  }
+}

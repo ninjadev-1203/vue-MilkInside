@@ -1,0 +1,123 @@
+%title-0 {
+  font-size: 10rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+%title-1 {
+  font-size: max(7.2rem, 50px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: normal;
+
+  @include media("<=phone") {
+    font-weight: 700;
+  }
+}
+
+%title-2 {
+  font-size: max(5rem, 32px);
+  line-height: 1.25;
+  letter-spacing: normal;
+
+  @include media(">phone") {
+    font-weight: 700;
+  }
+}
+
+%title-3 {
+  font-size: max(3.2rem, 24px);
+  line-height: 1.25;
+  letter-spacing: normal;
+}
+
+%sub-24 {
+  font-size: max(2.4rem, 20px);
+  line-height: 1.25;
+  letter-spacing: calc(-0.01 * 24px);
+
+  @include media("<=tablet") {
+    font-size: max(1.6rem, 16px);
+    letter-spacing: normal;
+    line-height: 1.45;
+  }
+}
+
+%sub-24-bold {
+  @extend %sub-24;
+  font-weight: 700;
+}
+
+%sub-20 {
+  font-size: max(2rem, 20px);
+  line-height: 1.2;
+  letter-spacing: calc(-0.01 * 20px);
+
+  @include media("<=tablet") {
+    font-size: max(1.6rem, 16px);
+    letter-spacing: calc(-0.01 * 16px);
+    line-height: 1.4;
+  }
+}
+
+%sub-20-bold {
+  @extend %sub-20;
+  font-weight: 700;
+}
+
+%body-85{
+  font-weight: 200;
+  font-size: 85px;
+  line-height: 103px;
+}
+
+%body-48{
+  font-weight: 200;
+  font-size: 48px;
+  line-height: 58px;
+}
+
+%body-20 {
+  font-size: max(2rem, 20px);
+  line-height: 1.45;
+  letter-spacing: calc(-0.016 * 24px);
+  font-weight: 400;
+
+  @include media("<=phone") {
+    font-size: max(1.6rem, 16px);
+    line-height: 1.25;
+    letter-spacing: normal;
+  }
+}
+
+%body-20-bold {
+  @extend %body-20;
+  font-weight: 700;
+}
+
+%body-16 {
+  font-size: max(1.6rem, 16px);
+  line-height: 1.45;
+  letter-spacing: calc(-0.016 * 24px);
+  font-weight: 400;
+}
+
+%body-16-bold {
+  @extend %body-16;
+  font-weight: 700;
+}
+
+%body-12 {
+  font-size: max(1.2rem, 12px);
+  line-height: 1.45;
+  letter-spacing: calc(-0.016 * 24px);
+  font-weight: 400;
+}
+
+%labels-16 {
+  @include media("<=phone") {
+    font-size: 12px;
+    line-height: 1.4;
+    letter-spacing: calc(-0.01 * 12px);
+  }
+}

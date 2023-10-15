@@ -1,0 +1,48 @@
+.c-nav {
+  position: sticky;
+  z-index: z("navigation");
+  padding: 50px var(--padding) 0;
+  color: #{$white};
+  align-self: flex-start;
+  justify-self: flex-start;
+  width: 100vw;
+
+  &--light {
+    color: #{$black};
+
+    .animated-menu-icon span {
+      background-color: #{$black};
+    }
+  }
+
+  &__wrapper {
+    @extend %flex-between;
+    @extend %content-width;
+    align-items: center;
+  }
+
+  &__logo {
+    @extend %body-20-bold;
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    @include flex-gap(54px);
+  }
+
+  &__menu-item {
+    cursor: pointer;
+    @extend %body-16-bold;
+
+    @include media("<=tablet") {
+      &:not(:last-child) {
+        display: none;
+      }
+    }
+  }
+
+  &__menu-link {
+    text-transform: uppercase;
+  }
+}

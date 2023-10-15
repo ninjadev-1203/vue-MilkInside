@@ -1,0 +1,63 @@
+// colors
+$white: #ffffff;
+$black: #080808;
+$gray: #F5F4F7;
+$red: #FF0000;
+$black-fade: rgba($black, 0.4);
+$white-fade: rgba($white, 0.4);
+$red-gradient: linear-gradient(201.8deg, #ff0000 2.86%, #ff005c 85.71%);
+$blue-gradient: linear-gradient(180deg, #8e8ef9 0%, #6db4fe 100%);
+$sky-blue-gradient: linear-gradient(217.27deg, #b5d2fa -17.84%, #ffffff 100%);
+$gray: #E8E7EA;
+
+// fonts
+
+$font-sans: "Helvetica", -apple-system, BlinkMacSystemFont, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Segoe UI, sans-serif;
+
+// easings
+$ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+$ease-soft-in-out: cubic-bezier(0.33, 0, 0.67, 1);
+$ease-sharp-out: cubic-bezier(0.66, 0, 0, 1);
+$ease-hesi-out: cubic-bezier(0.84, 0, 0.04, 1);
+$ease-hard-in: cubic-bezier(0.17, 0.17, 0.83, 1);
+
+// border-radius
+$corner-sm: 20px;
+$corner-md: 24px;
+$corner-lg: 32px;
+
+$z-indexes: (
+  "noscript",
+  "loading",
+  "preloader",
+  "navigation",
+  "menu",
+  "footer",
+  "content",
+  "canvas",
+  "4",
+  "3",
+  "2",
+  "1"
+);
+
+// layout
+body {
+  --padding: 7.2rem;
+
+  @include media("<=desktop") {
+    --padding: 4.8rem;
+  }
+
+  @include media("<=tablet") {
+    --padding: 32px;
+  }
+
+  @include media("<=phone") {
+    --padding: 24px;
+  }
+
+  // Set with JS
+  --nav-height: 124px;
+}

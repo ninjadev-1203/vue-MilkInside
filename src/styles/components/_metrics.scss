@@ -1,0 +1,50 @@
+.c-metrics {
+  margin-top: auto;
+  padding-top: 16px;
+
+  &__heading {
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
+  &__content {
+    margin-top: 20px;
+    @extend %flex-between;
+    align-items: center;
+  }
+  &__detail {
+    display: flex;
+    align-items: center;
+    font-size: max(2.4rem, 16px);
+    max-width: 40ch;
+  }
+  &__image {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 2.4rem;
+    flex-shrink: 0;
+  }
+  &__stats {
+    display: flex;
+    align-items: center;
+    @include media("<=desktop") {
+      display: none;
+    }
+    @include media("<=SMdesktop") {
+      display: flex;
+    }
+    @include media("<=tablet") {
+      display: none;
+    }
+
+    &-value {
+      @extend %title-1;
+      line-height: 1;
+      margin: 0 16px;
+    }
+    &-description {
+      max-width: 12ch;
+    }
+  }
+}

@@ -1,0 +1,141 @@
+.c-clients {
+  width: 100%;
+  flex-direction: column;
+
+  &__content{
+    @extend %content-width;
+    margin-bottom: auto;
+  }
+
+  &__heading {
+    @extend %sub-24;
+    color: $black;
+    margin-top: 66px;
+  }
+
+  &__line {
+    margin: 16px 0 24px;
+  }
+
+  &__body-title {
+    @extend %title-2;
+    color: $black;
+    margin-bottom: 58px;
+  }
+
+  &__users-grid {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(4, 1fr);
+    justify-content: space-between;
+    grid-auto-flow: column;
+    row-gap: 4px;
+  }
+
+  &__user {
+    @extend %sub-24-bold;
+
+    &:hover {
+      color: $red-gradient;
+    }
+
+    .black {
+      color: $black;
+    }
+
+    .gray {
+      color: $black-fade;
+    }
+  }
+
+  &__bottom-line-wrapper {
+    margin-bottom: 20px;
+    @extend %content-width;
+  }
+
+  &__bottom-section{
+    display: flex;
+    align-items: center;
+  }
+
+  &__statistics{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @extend %content-width;
+    padding-right: 8px;
+    margin-right: 72px;
+  }
+
+  &__statistic{
+    &-value{
+      @extend %title-1;
+      display: inline-block;
+    }
+
+    &-description{
+      @extend %body-16;
+      display: inline-block;
+      margin-left: 16px;
+      vertical-align: baseline;
+    }
+  }
+
+  &__more-link{
+    @include flex-gap(24px);
+    align-items: center;
+
+    &-button{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 72px;
+      width: 72px;
+      background-color: $white;
+      border-radius: 24px;
+      border: none;
+    }
+
+    &-text{
+      @extend %sub-24;
+      color: $black;
+    }
+  }
+}
+
+.c-clients-mobile{
+  flex-direction: column;
+
+  &__intro-wrapper{
+    padding: 0 24px;
+  }
+
+  &__title{
+    @extend %title-3;
+    margin: 28px 0 32px;
+    padding: 0 24px;
+  }
+
+  &__clients{
+    display: flex;
+    align-items: center;
+    overflow: auto;
+    column-gap: 16px;
+    margin-bottom: 60px;
+    padding-left: 24px;
+  }
+
+  &__client{
+    @extend %body-16;
+    font-weight: 500;
+    white-space: pre;
+
+    &:first-child{
+      background: $red-gradient;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+%page {
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+  width: 100%;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  overscroll-behavior: none;
+}
+
+%page--active {
+  opacity: 1;
+  pointer-events: auto;
+  transition: none;
+  visibility: visible;
+  height: 100%;
+  overflow: unset;
+}

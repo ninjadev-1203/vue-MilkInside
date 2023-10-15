@@ -1,0 +1,36 @@
+html {
+  font-size: calc(0.2rem + 0.35vw);
+  overscroll-behavior: none;
+  overflow: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+// resets
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-sans;
+  font-size: max(1.6rem, 16px);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: calc(-0.01 * 16px);
+  background: $black-fade;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: z("canvas");
+}
+
+button {
+  cursor: pointer;
+}
+
+#milkinside .loading {
+  z-index: z("loading");
+}

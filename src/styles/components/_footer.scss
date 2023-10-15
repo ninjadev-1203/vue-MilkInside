@@ -1,0 +1,170 @@
+.c-footer {
+  @extend %flex-between;
+  @include flex-gap(8vw);
+  padding: var(--padding);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: z("footer");
+  background-color: $black;
+  width: 100%;
+  height: 100%;
+  padding-top: calc(var(--nav-height) + 16px);
+  color: $white;
+
+  @include media("<=tablet") {
+    flex-direction: column-reverse;
+    position: relative;
+    padding-top: 100px;
+    @include flex-gap(100px);
+  }
+
+  &__content {
+    @extend %content-width;
+
+    @include media(">tablet") {
+      flex-direction: column;
+      display: flex;
+      height: 78vh;
+    }
+
+    &__top {
+      margin-bottom: 24px;
+
+      @include media("<=tablet") {
+        display: flex;
+        flex-direction: row-reverse;
+        @include flex-gap(52px);
+      }
+    }
+
+    &__bottom {
+      margin-top: auto;
+    }
+  }
+
+  .c-intro,
+  .c-line__wrapper,
+  &__intro,
+  &__views__label {
+    @include media("<=tablet") {
+      display: none;
+    }
+  }
+
+  &__intro {
+    @extend %flex-between;
+    @extend %sub-24;
+    margin-bottom: 16px;
+    margin-top: 6vh;
+  }
+
+  &__services {
+    @extend %flex-between;
+    margin-top: 24px;
+    margin-bottom: 7.7vh;
+
+    &__title {
+      @extend %title-2;
+    }
+
+    @include media("<=tablet") {
+      position: absolute;
+      top: 0;
+      left: var(--padding);
+    }
+  }
+
+  &__views {
+    &__label {
+      color: rgba($white, 0.2);
+      @extend %sub-24;
+      margin-top: -6px;
+    }
+  }
+
+  &__group {
+    max-width: 24.8rem;
+    width: 100%;
+
+    &s {
+      display: flex;
+      width: 100%;
+      @include flex-gap(7.2rem);
+      margin-bottom: 7vh;
+
+      @include media("<=tablet") {
+        flex-direction: column;
+        @include flex-gap(40px);
+      }
+    }
+
+    &-heading {
+      @extend %sub-24-bold;
+      margin-bottom: 3.7vh;
+
+      @include media("<=tablet") {
+        margin-bottom: 24px;
+      }
+    }
+
+    &-link {
+      opacity: 0.4;
+      transition: opacity 100ms $ease-soft-in-out;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &s {
+        display: flex;
+        flex-direction: column;
+        @include flex-gap(2rem);
+      }
+    }
+  }
+
+  &__links {
+    @include flex-gap(var(--padding));
+    display: flex;
+    align-items: center;
+
+    @include media("<=tablet") {
+      flex-direction: column;
+      @include flex-gap(40px);
+    }
+
+    a {
+      display: flex;
+    }
+  }
+
+  &__copy {
+    @extend %body-16;
+    color: rgba($white, 0.2);
+
+    @include media("<=tablet") {
+      text-align: center;
+    }
+  }
+
+  &__form {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    max-width: 500px;
+
+    @include media(">tablet") {
+      margin-bottom: 16vh;
+      max-width: toRem(496);
+      height: auto;
+    }
+
+    &__title {
+      @extend %title-2;
+      margin-bottom: 40px;
+    }
+  }
+}

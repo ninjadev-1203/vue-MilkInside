@@ -1,0 +1,98 @@
+.c-services {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  @extend %page;
+  background-color: white;
+
+  @include media("<=SMdesktop") {
+    .c-nav{
+      position: fixed;
+      top: 0;
+      width: 100vw;
+    }
+  }
+
+  &--active {
+    @extend %page--active;
+  }
+
+  &__wrapper {
+    padding: 65px 0 0;
+    flex-grow: 1;
+
+    @include media("<=tablet") {
+      padding: 36px 0 24px;
+    }
+
+    @include media("<=SMdesktop") {
+      padding: 0;
+    }
+  }
+
+  &__sections{
+    height: 100%;
+  }
+
+  &__section{
+    height: 100%;
+    display: none;
+    @extend %content-width;
+    padding: 0 var(--padding) 88px;
+
+    &--no-padding{
+      padding: 0;
+    }
+
+    &--active{
+      display: flex;
+    }
+
+    @include media("<=SMdesktop") {
+      display: none;
+    }
+
+    &--mobile-section{
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      padding-top: 96px;
+
+      @include media(">SMdesktop") {
+        display: none;
+      }
+    }
+  }
+
+  &__down-icon{
+    position: fixed;
+    bottom: 72px;
+    right: 72px;
+
+    @include media("<=SMdesktop") {
+      display: none;
+    }
+  }
+
+  &__mobile-down-icon{
+    position: absolute;
+    bottom: 36px;
+    right: 24px;
+    @include media(">SMdesktop") {
+      display: none;
+    }
+  }
+
+  &__down-button{
+    border: none;
+    background-color: white;
+    backdrop-filter: blur(50px);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 76px;
+    width: 78px;
+    height: 78px;
+  }
+}

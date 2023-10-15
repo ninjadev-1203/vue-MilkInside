@@ -1,0 +1,182 @@
+.c-case {
+  height: 100vh;
+  --color: #{$black};
+  color: var(--color);
+  background-color: $gray;
+  display: flex;
+  flex-direction: column;
+  @extend %page;
+
+  &--active {
+    @extend %page--active;
+  }
+
+  &__wrapper {
+    padding: 65px var(--padding) 106px;
+    flex-grow: 1;
+  }
+
+  &__backgrounds {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  &__background {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    display: none;
+    // object-fit: cover;
+    // object-position: 70% top;
+
+    &--active {
+      display: initial;
+    }
+  }
+
+  &__section {
+    height: calc(100% - (var(--padding)));
+    display: none;
+
+    &--active {
+      display: block;
+    }
+  }
+
+  &__sections {
+    height: 100%;
+  }
+
+  &-intro {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+
+    &__content {
+      position: relative;
+      margin: auto;
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 4rem;
+        right: calc(100% + 64px);
+        background-color: var(--color);
+        width: 25vw;
+        height: 2px;
+      }
+    }
+    &__title {
+      @extend %title-0;
+    }
+    &__description {
+      @extend %sub-24;
+      max-width: 45ch;
+      margin-top: 24px;
+    }
+  }
+
+  &__states {
+    @extend %flex-between;
+    @extend %content-width;
+
+    &:not(:last-child) {
+      width: 45%;
+      .c-case__state-title {
+        max-width: 13ch;
+      }
+    }
+  }
+
+  &__state {
+    &-title {
+      @extend %sub-24;
+      max-width: 7ch;
+      padding-bottom: 24px;
+    }
+    &-description {
+      position: relative;
+      max-width: 20ch;
+      padding-top: 32px;
+      opacity: .6;
+
+      // Indicator lines
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--color);
+        opacity: 0;
+      }
+      &::before {
+        width: 24px;
+        opacity: 1;
+      }
+    }
+  }
+
+  &-article {
+    @extend %flex-between;
+    flex-direction: column;
+    height: 100%;
+
+    &__title {
+      @extend %title-2;
+      max-width: 28ch;
+      padding-top: 5.6rem;
+      padding-bottom: 2.4rem;
+    }
+    &__description {
+      @extend %sub-24;
+      max-width: 40ch;
+
+      em {
+        color: $red;
+      }
+    }
+    &__quote {
+      &-author {
+        // @extend %flex-between;
+        @include flex-gap(24px);
+
+        &-name {
+          font-weight: 700;
+        }
+        &-description {
+          opacity: .4;
+          margin-top: 6px;
+        }
+      }
+      &-content {
+        max-width: 25ch;
+      }
+      &-title {
+        @extend %sub-24;
+        font-weight: 500;
+        max-width: 42ch;
+        margin-bottom: 24px;
+      }
+      &-image {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background-color: $black;
+      }
+    }
+  }
+
+  .c-intro {
+    @extend %content-width;
+    padding-top: 4%;;
+  }
+  .c-metrics {
+    @extend %content-width;
+  }
+}

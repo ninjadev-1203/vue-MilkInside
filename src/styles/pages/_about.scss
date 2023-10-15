@@ -1,0 +1,49 @@
+.c-about {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  @extend %page;
+  z-index: 0;
+
+  &--active {
+    @extend %page--active;
+  }
+
+  &__wrapper {
+    flex-grow: 1;
+    overflow: hidden;
+
+    @include media("<=tablet") {
+      padding-top: 36px;
+    }
+  }
+
+  .c-intro {
+    padding-top: 6vh;
+    margin-top: 65px;
+    z-index: z("1");
+  }
+
+  &__sections {
+    height: 100%;
+    position: relative;
+  }
+
+  &__section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+    visibility: hidden;
+
+    &--active {
+      visibility: visible;
+      pointer-events: auto;
+    }
+  }
+}
