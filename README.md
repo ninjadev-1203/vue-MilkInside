@@ -1,5 +1,8 @@
 # milkinside-vue
 
+![MildInside1](vue1.jpg)
+
+
 ## Project setup
 ```
 npm install
